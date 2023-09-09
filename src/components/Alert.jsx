@@ -1,18 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useContext, useMemo } from "react";
+import { ShopContext } from "../context";
 
 
-function Alert(props) {
+function Alert() {
     const {
-        displayName = '',
+        alertName: displayName,
         closeAlert
-    } = props;
+    } = useContext(ShopContext);
+
+    // useMemo(() => {
+    //     console.log(displayName);
+    //     const timerId = setTimeout(closeAlert, 3000);
+
+    //     return () => {
+    //         clearTimeout(timerId)
+    //     }
+    // }, [displayName]);
 
     useEffect(() => {
+        console.log(displayName);
         const timerId = setTimeout(closeAlert, 3000);
 
         return () => {
             clearTimeout(timerId)
         }
+        // eslint-disable-next-line
     }, [displayName]);
 
     return (

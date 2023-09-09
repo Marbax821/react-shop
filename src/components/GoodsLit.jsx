@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GoodsItem } from "./GoodsItem";
 
-function GoodsList(props) {
-    const { goods = [], addToBasket = Function.prototype } = props;
+import { ShopContext } from "../context";
+
+function GoodsList() {
+    const { goods = [] } = useContext(ShopContext);
     const [visibleItems, setVisibleItems] = useState(8);
 
     if (!goods.length) {
@@ -17,7 +19,7 @@ function GoodsList(props) {
         <>
             <div className="goods">
                 {goods.slice(0, visibleItems).map((item) => (
-                    <GoodsItem key={item.mainId} {...item} addToBasket={addToBasket} />
+                    <GoodsItem key={item.mainId} {...item} />
                 ))}
 
             </div>
