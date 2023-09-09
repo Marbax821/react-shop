@@ -1,2 +1,3 @@
-Project : React-Shop
-Homepage : https://marbax821.github.io/react-shop/
+#Project : React-Shop
+
+[Demo](https://marbax821.github.io/react-shop/)
